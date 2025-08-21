@@ -8,7 +8,9 @@ app = FastAPI()
 
 inprogress_orders = {}
 
-
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI chatbot is running!"}
 @app.post("/")
 async def handle_request(request: Request):
     payload = await request.json()
